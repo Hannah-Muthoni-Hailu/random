@@ -62,8 +62,8 @@ def handle_image_audio(data: UserAudioImage):
 
 @app.post("/audio")
 def handle_audio(data: UserAudio):
-    print(COUNTER)
     global COUNTER
+    print(COUNTER)
 
     if COUNTER == 0:
         reply = "I saw a sign at the farm that said 'Duck, eggs'. I was contemplating the use of the comma when it hit me."
