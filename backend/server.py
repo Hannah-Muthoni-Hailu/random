@@ -58,7 +58,7 @@ def handle_image(data: UserImage):
 
 @app.post("/image_audio")
 def handle_image_audio(data: UserAudioImage):
-    return {"audio_url": f"/audio/{'download (1).wav'}"}
+    return {"audio_url": f"/audio/{'download (1).mp3'}"}
 
 @app.post("/audio")
 def handle_audio(data: UserAudio):
@@ -67,13 +67,13 @@ def handle_audio(data: UserAudio):
 
     if COUNTER == 0:
         reply = "I saw a sign at the farm that said 'Duck, eggs'. I was contemplating the use of the comma when it hit me."
-        audio_filename = "download (2).wav"
+        audio_filename = "download (2).mp3"
     elif COUNTER == 1:
         reply = "Your expected harvest date is August 2nd 2026. With optimal conditions, you can expect a yeild of 1536 kilograms per hectare. The total amount of water you can expect to use is 5000 tonnes per hectare"
-        audio_filename = "download.wav"
+        audio_filename = "download.mp3"
     else:
         reply = "Please provide a crop image"
-        audio_filename = "download (3).wav"
+        audio_filename = "download (3).mp3"
         COUNTER = -1
     
     COUNTER += 1
@@ -95,7 +95,7 @@ def get_audio(filename: str, background_tasks: BackgroundTasks):
     if not os.path.isfile(audio_path):
         raise HTTPException(404, "Audio file not found")
     
-    return FileResponse(audio_path, media_type="audio/wav", filename=filename)
+    return FileResponse(audio_path, media_type="audio/mpeg", filename=filename)
 
 def handle_intent(text):
     if "simulate" in text:
