@@ -62,6 +62,7 @@ def handle_image_audio(data: UserAudioImage):
 
 @app.post("/audio")
 def handle_audio(data: UserAudio):
+    print(COUNTER)
     global COUNTER
 
     if COUNTER == 0:
