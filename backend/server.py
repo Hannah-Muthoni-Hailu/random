@@ -71,9 +71,10 @@ def handle_audio(data: UserAudio):
     elif COUNTER == 1:
         reply = "Your expected harvest date is August 2nd 2026. With optimal conditions, you can expect a yeild of 1536 kilograms per hectare. The total amount of water you can expect to use is 5000 tonnes per hectare"
         audio_filename = "download.wav"
-    elif COUNTER == 2:
+    else:
         reply = "Please provide a crop image"
         audio_filename = "download (3).wav"
+        COUNTER = -1
     
     COUNTER += 1
     return {"reply": reply, "audio_url": f"/audio/{audio_filename}"}
